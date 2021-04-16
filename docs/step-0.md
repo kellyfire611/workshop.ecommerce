@@ -1,8 +1,14 @@
 # Step 0: chuẩn bị môi trường demo
 ## Download source code
-- Truy cập: [https://github.com/kellyfire611/workshop.ecommerce](https://github.com/kellyfire611/workshop.ecommerce)
+- Truy cập: [https://github.com/kellyfire611/workshop.ecommerce/archive/refs/tags/0.0.1.zip](https://github.com/kellyfire611/workshop.ecommerce/archive/refs/tags/0.0.1.zip)
 - Download source code.
 - Giải nén vào trong thư mục chạy WebServer XAMP: `c:\xampp\htdocs\`
+- Sau khi giải nén sẽ có cấu trúc thư mục như sau:
+```
+c:\xampp
+   +----htdocs
+        +-----workshop.ecommerce
+```
 
 ## Khởi động dịch vụ WebServer XAMPP
 - Vào `Start`->`Xampp`
