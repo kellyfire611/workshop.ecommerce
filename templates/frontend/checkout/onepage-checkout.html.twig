@@ -134,7 +134,7 @@ Thanh toán
                     <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt hàng</button>
 
                     <!-- Bổ sung nút Thanh toán với Stripe -->
-                    <button id="checkout-button" type="button" class="btn btn-success">Thanh toán với Stripe</button>
+                    
             </div>
         </div>
     </form>
@@ -144,58 +144,5 @@ Thanh toán
 
 {% block customscripts %}
 <!-- Tích hợp thư viện JS Thanh toán Stripe -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
-<script type="text/javascript">
-    function serialize (data) {
-        let obj = {};
-        for (let [key, value] of data) {
-            if (obj[key] !== undefined) {
-                if (!Array.isArray(obj[key])) {
-                    obj[key] = [obj[key]];
-                }
-                obj[key].push(value);
-            } else {
-                obj[key] = value;
-            }
-        }
-        return obj;
-    }
 
-    // Chuẩn bị dữ liệu Giỏ hàng để gởi đến cổng thanh toán Stripe
-    // Get the form
-    let form = document.querySelector('#frmCheckOut');
-    // Get all field data from the form
-    let data = new FormData(form);
-    // Convert to an object
-    let sendData = serialize(data);
-
-    // Create an instance of the Stripe object with your publishable API key
-    var stripe = Stripe('pk_test_51IgWCYG9O8Lzt9jNYWrungybX1ypQceExeBM5nEiCFRydpupgWAzKe51QpNLpMtnj7YhwhojzYWIkrWFV92LWrP200DOgLmMNV');
-    var checkoutButton = document.getElementById('checkout-button');
-
-    checkoutButton.addEventListener('click', function() {
-    $.ajax({
-        url: '/frontend/ajax/create-checkout-session',
-        method: "POST",
-        dataType: 'json',
-        data: sendData,
-        success: function (session) {
-            debugger;
-            return stripe.redirectToCheckout({ sessionId: session.id });
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus, errorThrown);
-            // Hiện thông báo
-            alert(errorThrown);
-        }
-    });
-});
-</script>
-
-<script>
-    $(document).ready(function () {
-        
-    });
-</script>
 {% endblock %}

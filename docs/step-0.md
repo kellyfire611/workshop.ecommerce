@@ -1,4 +1,4 @@
-# Step 1: chuẩn bị môi trường demo
+# Step 0: chuẩn bị môi trường demo
 ## Download source code
 - Truy cập: [https://github.com/kellyfire611/workshop.ecommerce](https://github.com/kellyfire611/workshop.ecommerce)
 - Download source code.
