@@ -55,7 +55,7 @@ echo json_encode([ 'id' => $session->id ]);
 
 # Step 3.2: bổ sung nút Thanh toán bằng Stripe trên giao diện
 - Mở file tên `templates/frontend/checkout/onepage-checkout.html.twig`.
-- Bổ sung vào dòng `147` như sau:
+- Bổ sung vào dòng `137` như sau:
 ```html
 <button id="checkout-button" type="button" class="btn btn-success">Thanh toán với Stripe</button>
 ```
