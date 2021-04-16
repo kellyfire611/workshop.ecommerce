@@ -1,0 +1,639 @@
+{# Kế thừa layout frontend #}
+{% extends "frontend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Sản phẩm {{ product.product_name }}
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Sản phẩm {{ product.product_name }}
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{% block customstyles %}
+<style>
+    body {
+        font-family: 'open sans';
+        overflow-x: hidden;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .preview {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: 996px) {
+        .preview {
+            margin-bottom: 20px;
+        }
+    }
+
+    .preview-pic {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-height: 300px;
+    }
+
+    .preview-thumbnail.nav-tabs {
+        border: none;
+        margin-top: 15px;
+    }
+
+    .preview-thumbnail.nav-tabs li {
+        width: 18%;
+        margin-right: 2.5%;
+    }
+
+    .preview-thumbnail.nav-tabs li img {
+        max-width: 100%;
+        display: block;
+    }
+
+    .preview-thumbnail.nav-tabs li a {
+        padding: 0;
+        margin: 0;
+    }
+
+    .preview-thumbnail.nav-tabs li:last-of-type {
+        margin-right: 0;
+    }
+
+    .tab-content {
+        overflow: hidden;
+    }
+
+    .tab-content img {
+        width: 100%;
+        -webkit-animation-name: opacity;
+        animation-name: opacity;
+        -webkit-animation-duration: .3s;
+        animation-duration: .3s;
+    }
+
+    .card {
+        margin-top: 50px;
+        background: #eee;
+        padding: 3em;
+        line-height: 1.5em;
+    }
+
+    @media screen and (min-width: 997px) {
+        .wrapper {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    }
+
+    .details {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .colors {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+    }
+
+    .product-title,
+    .price,
+    .sizes,
+    .colors {
+        text-transform: UPPERCASE;
+        font-weight: bold;
+    }
+
+    .checked,
+    .price span {
+        color: #ff9f1a;
+    }
+
+    .product-title,
+    .rating,
+    .product-description,
+    .price,
+    .vote,
+    .sizes {
+        margin-bottom: 15px;
+    }
+
+    .product-title {
+        margin-top: 0;
+    }
+
+    .size {
+        margin-right: 10px;
+    }
+
+    .size:first-of-type {
+        margin-left: 40px;
+    }
+
+    .color {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        height: 2em;
+        width: 2em;
+        border-radius: 2px;
+    }
+
+    .color:first-of-type {
+        margin-left: 20px;
+    }
+
+    .add-to-cart,
+    .like {
+        background: #ff9f1a;
+        padding: 1.2em 1.5em;
+        border: none;
+        text-transform: UPPERCASE;
+        font-weight: bold;
+        color: #fff;
+        -webkit-transition: background .3s ease;
+        transition: background .3s ease;
+    }
+
+    .add-to-cart:hover,
+    .like:hover {
+        background: #b36800;
+        color: #fff;
+    }
+
+    .not-available {
+        text-align: center;
+        line-height: 2em;
+    }
+
+    .not-available:before {
+        font-family: fontawesome;
+        content: "\f00d";
+        color: #fff;
+    }
+
+    .orange {
+        background: #ff9f1a;
+    }
+
+    .green {
+        background: #85ad00;
+    }
+
+    .blue {
+        background: #0076ad;
+    }
+
+    .tooltip-inner {
+        padding: 1.3em;
+    }
+
+    @-webkit-keyframes opacity {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(3);
+            transform: scale(3);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes opacity {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(3);
+            transform: scale(3);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+</style>
+
+<style>
+    .btn-grey {
+        background-color: #D8D8D8;
+        color: #FFF;
+    }
+
+    .rating-block {
+        background-color: #FAFAFA;
+        border: 1px solid #EFEFEF;
+        padding: 15px 15px 20px 15px;
+        border-radius: 3px;
+    }
+
+    .bold {
+        font-weight: 700;
+    }
+
+    .padding-bottom-7 {
+        padding-bottom: 7px;
+    }
+
+    .review-block {
+        background-color: #FAFAFA;
+        border: 1px solid #EFEFEF;
+        padding: 15px;
+        border-radius: 3px;
+        margin-bottom: 15px;
+    }
+
+    .review-block-name {
+        font-size: 12px;
+        margin: 10px 0;
+    }
+
+    .review-block-date {
+        font-size: 12px;
+    }
+
+    .review-block-rate {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .review-block-title {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .review-block-description {
+        font-size: 13px;
+    }
+</style>
+{% endblock %}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="container mt-4">
+    <div id="errors-container" class="alert alert-danger d-none face" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="container-fliud">
+            <form name="frmProductDetail" id="frmProductDetail" method="post" action="/frontend/cart/add-to-cart">
+                <!-- Hidden value, dùng để gởi dữ liệu đến Server -->
+                <input type="hidden" name="id" id="id" value="{{ product.id }}" />
+                <input type="hidden" name="product_name" id="product_name" value="{{ product.product_name }}" />
+                <input type="hidden" name="list_price" id="list_price" value="{{ product.list_price }}" />
+                <input type="hidden" name="list_price_after_discount" id="list_price_after_discount" value="{{ product.list_price_after_discount }}" />
+                <input type="hidden" name="image" id="image" value="{{ product.image }}" />
+                <input type="hidden" name="is_fixed" id="is_fixed" value="{{ product.is_fixed }}" />
+                <input type="hidden" name="discount_amount" id="discount_amount" value="{{ product.discount_amount }}" />
+
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+                        <!-- Hiển thị danh sách Gallery ảnh liên quan đến Sản phẩm -->
+                        {% if product.list_images|length > 0 %}
+                        <div class="preview-pic tab-content">
+                            <!-- Ảnh đại diện Sản phẩm -->
+                            <div class="tab-pane active" id="pic-0">
+                                <img src="/assets/uploads/{{ product.image }}" />
+                            </div>
+                            <!-- Danh sách ảnh liên quan -->
+                            {% for gallery_image in product.list_images %}
+                            <div class="tab-pane" id="pic-{{ loop.index+1 }}">
+                                <img src="/assets/uploads/{{ gallery_image.image }}" />
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            <!-- Nav tabs cho Ảnh đại diện Sản phẩm -->
+                            <li class="active">
+                                <a data-target="#pic-0" data-toggle="tab">
+                                    <img src="/assets/uploads/{{ product.image }}" />
+                                </a>
+                            </li>
+                            <!-- Nav tabs cho Danh sách ảnh liên quan -->
+                            {% for gallery_image in product.list_images %}
+                            <li class="">
+                                <a data-target="#pic-{{ loop.index+1 }}" data-toggle="tab">
+                                    <img src="/assets/uploads/{{ gallery_image.image }}" />
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <!-- Không có hình sản phẩm nào => lấy ảnh mặc định -->
+                        {% if product.image is not empty %}
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-0">
+                                <img src="/assets/uploads/{{ product.image }}" />
+                            </div>
+                        </div>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            <li class="active">
+                                <a data-target="#pic-0" data-toggle="tab">
+                                    <img src="/assets/uploads/{{ product.image }}" />
+                                </a>
+                            </li>
+                        </ul>
+                        {% else %}
+                        <!-- Nếu không có ảnh mặc định => lấy ảnh minh họa trong assets -->
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-0">
+                                <img src="/assets/shared/img/default-image_600.png" />
+                            </div>
+                        </div>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            <li class="active">
+                                <a data-target="#pic-0" data-toggle="tab">
+                                    <img src="/assets/shared/img/default-image_600.png" />
+                                </a>
+                            </li>
+                        </ul>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    <div class="details col-md-6">
+                        <h3 class="product-title">{{ product.product_name }}</h3>
+                        <!-- Dựa trên số điểm đánh giá, hiển thị đúng số lượng ngôi sao -->
+                        <div class="rating">
+                            {% if product.avgRating > 0 %}
+                            <div class="stars">
+                                <!-- Hiển thị các ngôi sao vàng (được đánh giá theo số điểm) -->
+                                <!-- Ví dụ: điểm trung bình đánh giá là 3 điểm => vòng lặp for từ 0->(3-1) -->
+                                {% for rating in 0..(product.avgRatingRound-1) if product.avgRatingRound > 0 %}
+                                <span class="fa fa-star checked"></span>
+                                {% endfor %}
+                                <!-- Hiển thị các ngôi sao xám còn lại (không được đánh giá theo số điểm) -->
+                                <!-- Ví dụ: điểm trung bình đánh giá là 3 điểm => vòng lặp for từ 3->(5-1) -->
+                                {% for rating in product.avgRatingRound..(5-1) if product.avgRatingRound < 5 %}
+                                <span class="fa fa-star"></span>
+                                {% endfor %}
+                            </div>
+                            <span class="review-no">{{ product.totalRating }} lượt Đánh giá</span>
+                            {% else %}
+                            <p>Sản phẩm chưa được đánh giá. Bạn hãy là người đầu tiên đánh giá cho Sản phẩm này.</p>
+                            {% endif %}
+                        </div>
+                        <p class="product-description">{{ product.short_description }}</p>
+
+                        <!-- Hiển thị Thông tin Giảm giá nếu có -->
+                        {% if product.discount_amount %}
+                            {% if product.is_fixed %}
+                            <!-- Thông tin giảm giá theo sô tiền cụ thể -->
+                            <span>Đang giảm giá số tiền <b>{{ product.discount_amount }}</b></span>
+                            {% else %}
+                            <!-- Thông tin giảm giá theo % cụ thể -->
+                            <span>Đang giảm giá <b>{{ product.discount_amount }}%</b></span>
+                            {% endif %}
+
+                        <small class="text-muted">Giá cũ: <s><span>{{ product.list_price_formatted }}</span></s></small>
+                        <h4 class="price">
+                            Giá hiện tại: <span>{{ product.list_price_after_discount_formatted }}</span>
+                        </h4>
+                        {% else %}
+                        <!-- Hiển thị Thông tin Giá cả -->
+                        <h4 class="price">
+                            Giá hiện tại: <span>{{ product.list_price_formatted }}</span>
+                        </h4>
+                        {% endif %}
+
+                        <p class="vote"><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo <strong>Uy
+                                tín</strong>!</p>
+                        <h5 class="sizes">
+                            Kích cỡ:
+                            <span class="size" data-toggle="tooltip" title="cỡ Nhỏ">s</span>
+                            <span class="size" data-toggle="tooltip" title="cỡ Trung bình">m</span>
+                            <span class="size" data-toggle="tooltip" title="cỡ Lớn">l</span>
+                            <span class="size" data-toggle="tooltip" title="cỡ Đại">xl</span>
+                        </h5>
+                        <h5 class="colors">
+                            Màu sắc:
+                            <span class="color orange not-available" data-toggle="tooltip" title="Hết hàng"></span>
+                            <span class="color green"></span>
+                            <span class="color blue"></span>
+                        </h5>
+                        <div class="form-group">
+                            <label for="quantity">Số lượng đặt mua:</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity">
+                        </div>
+                        <div class="action">
+                            <a class="add-to-cart btn btn-default" id="btnAddToCart">Thêm vào giỏ hàng</a>
+                            <a class="like btn btn-default" href="#"><span class="fa fa-heart"></span></a>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="container-fluid">
+        <h3>Thông tin chi tiết về Sản phẩm</h3>
+        <div class="row">
+            <div class="col">
+                {{ product.description }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <h3>Thông tin Đánh giá Sản phẩm</h3>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="rating-block">
+                <h4>Điểm đánh giá Trung bình</h4>
+                <h2 class="bold padding-bottom-7">{{ product.avgRating }} <small>/ {{ product.totalRating }}</small></h2>
+
+                {% if product.avgRating > 0 %}
+                <div class="stars">
+                    <!-- Hiển thị các ngôi sao vàng (được đánh giá theo số điểm) -->
+                    <!-- Ví dụ: điểm trung bình đánh giá là 3 điểm => vòng lặp for từ 0->(3-1) -->
+                    {% for rating in 0..(product.avgRatingRound-1) if product.avgRatingRound > 0 %}
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="fa fa-star" aria-hidden="true"></span>
+                    </button>
+                    {% endfor %}
+                    <!-- Hiển thị các ngôi sao xám còn lại (không được đánh giá theo số điểm) -->
+                    <!-- Ví dụ: điểm trung bình đánh giá là 3 điểm => vòng lặp for từ 3->(5-1) -->
+                    {% for rating in product.avgRatingRound..(5-1) if product.avgRatingRound < 5 %}
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="fa fa-star" aria-hidden="true"></span>
+                    </button>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p>Sản phẩm chưa được đánh giá. Bạn hãy là người đầu tiên đánh giá cho Sản phẩm này.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h4>Chi tiết Đánh giá</h4>
+            <ul style="list-style-type: none;">
+                {% for i in 5..1 %}
+                    {% if product.review_statistics[i] %}
+                    {% set progress_value = (product.review_statistics[i]|length * 100 / product.totalRating) %}
+                    <li class="mb-1">
+                        <div class="row">
+                            <div class="" style="width:35px;">
+                               {{ i }} <span class="fa fa-star"></span>
+                            </div>
+                            <div class="col">
+                                <div class="progress" style="height: 23px;">
+                                    <div class="progress-bar {{ configBootstrapRatingClass[i].class }}" role="progressbar" style="width: {{ progress_value }}%;" aria-valuenow="{{ progress_value }}" aria-valuemin="0" aria-valuemax="100">{{ product.review_statistics[i]|length }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% else %}
+                    {% set progress_value = 0 %}
+                    <li class="mb-1">
+                        <div class="row">
+                            <div class="" style="width:35px;">
+                               {{ i }} <span class="fa fa-star"></span>
+                            </div>
+                            <div class="col">
+                                <div class="progress" style="height: 23px;">
+                                    <div class="progress-bar {{ configBootstrapRatingClass[i].class }}" role="progressbar" style="width: {{ progress_value }}%;" aria-valuenow="{{ progress_value }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <hr />
+            <div class="review-block">
+                {% for review in product.list_reviews %}
+                <div class="row">
+                    <div class="col-sm-3">
+                        {% if review.avatar %}
+                        <img src="/assets/uploads/{{ review.avatar }}" class="img-rounded">
+                        {% else %}
+                        <img src="/assets/shared/img/no-avatar.png" class="img-rounded">
+                        {% endif %}
+                        <div class="review-block-name"><a href="/{{ review.customer_id }}">{{ review.last_name }} {{ review.first_name }}</a></div>
+                        <div class="review-block-date">{{ review.created_at_formatted }}</div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="review-block-rate">
+                            <div class="stars">
+                                <!-- Hiển thị các ngôi sao vàng (được đánh giá theo số điểm) -->
+                                <!-- Ví dụ: điểm trung bình đánh giá là 3 điểm => vòng lặp for từ 0->(3-1) -->
+                                {% for rating in 0..(review.rating-1) if review.rating > 0 %}
+                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                </button>
+                                {% endfor %}
+                                <!-- Hiển thị các ngôi sao xám còn lại (không được đánh giá theo số điểm) -->
+                                <!-- Ví dụ: điểm trung bình đánh giá là 3 điểm => vòng lặp for từ 3->(5-1) -->
+                                {% for rating in review.rating..(5-1) if review.rating < 5 %}
+                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                </button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="review-block-description">{{ review.comment }}</div>
+                    </div>
+                </div>
+                <hr />
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+{# End Nội dung trong block content #}
+
+{% block customscripts %}
+<script>
+    // Hàm thêm Sản phẩm vào Giỏ hàng
+    function addProductToCart() {
+        // 1. Chuẩn bị dữ liệu gởi đến Server
+        // Chuẩn JSON
+        var sendData = {
+            id: $('#id').val(),
+            product_name: $('#product_name').val(),
+            list_price: $('#list_price').val(),
+            list_price_after_discount: $('#list_price_after_discount').val(),
+            image: $('#image').val(),
+            is_fixed: $('#is_fixed').val(),
+            discount_amount: $('#discount_amount').val(),
+            quantity: $('#quantity').val(),
+        };
+        console.log((sendData));
+
+        // 2. Sử dụng AJAX để gởi dữ liệu đến `cart-addproduct-ajax.php` xử lý
+        $.ajax({
+            url: '/frontend/ajax/cart-addproduct-ajax.php',
+            method: "POST",
+            dataType: 'json',
+            data: sendData,
+            success: function (data) {
+                // Gởi dữ liệu và xử lý thành công
+                console.log(data);
+                var htmlString =
+                    `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/frontend/checkout/cart">Xem Giỏ hàng</a>.`;
+                $('#errors-container').html(htmlString);
+
+                // Hiện thông báo
+                $('.alert').removeClass('d-none').addClass('show');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // Gởi dữ liệu nhưng bị lỗi
+                console.log(textStatus, errorThrown);
+
+                var htmlString = `<h1>Không thể xử lý</h1>`;
+                $('#errors-container').html(htmlString);
+
+                // Hiện thông báo
+                $('.alert').removeClass('d-none').addClass('show');
+            }
+        });
+    };
+
+    $('#btnAddToCart').click(function (event) {
+        event.preventDefault();
+        addProductToCart();
+    });
+</script>
+{% endblock %}

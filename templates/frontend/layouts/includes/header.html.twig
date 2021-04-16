@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="https://nentang.vn">Nền tảng</a>
+        <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Trang chủ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/backend/pages/dashboard.php">Quản trị</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/frontend/product/list.php">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/frontend/pages/about.php">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/frontend/pages/contact.php">Liên hệ</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0" method="get" action="/frontend/product/search.php">
+                <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search"
+                    name="keyword_tensanpham">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+            </form>
+        </div>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/frontend/checkout/cart.php">Giỏ hàng</a>
+            </li>
+            <li class="nav-item text-nowrap">
+                {% if session['email'] %}
+                <!-- Nếu đã đăng nhập thì hiển thị Thông tin Tài khoản -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cá nhân
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Thông tin</a>
+                      <a class="dropdown-item" href="#">Danh sách Đặt hàng</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/frontend/auth/logout.php">Đăng xuất</a>
+                    </div>
+                </li>
+                {% else %}
+                <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
+                <a class="nav-link" href="/frontend/auth/login.php">Đăng nhập</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>

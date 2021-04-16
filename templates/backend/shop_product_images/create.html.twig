@@ -1,0 +1,34 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Thêm mới Hình Sản phẩm
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Thêm mới Hình Sản phẩm
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<form name="frmhinhsanpham" id="frmhinhanpham" method="post" action="/backend/hinhsanpham/create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="sp_ma">Sản phẩm</label>
+        <select class="form-control" id="sp_ma" name="sp_ma">
+            {% for sanpham in ds_sanpham %}
+            <option value="{{ sanpham.sp_ma }}">{{ sanpham.sp_tomtat }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="hproduct_nametaptin">Tập tin ảnh</label>
+        <input type="file" class="form-control" id="hproduct_nametaptin" name="hproduct_nametaptin">
+    </div>
+    <button class="btn btn-primary" name="btnSave">Cập nhật</button>
+</form>
+{% endblock %}
+{# End Nội dung trong block content #}

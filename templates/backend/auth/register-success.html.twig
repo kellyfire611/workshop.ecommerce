@@ -1,0 +1,28 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Đăng ký
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Đăng ký
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col">
+            <h1>Đăng ký tài khoản thành công!</h1>
+            <p>Xin chào <b>{{ customer.last_name }} {{ customer.first_name }}</b>. Vui lòng kiểm tra hộp thư <b>{{ customer.email }}</b> để kích hoạt tài khoản.<p>
+            <a href="/">Quay về Trang chủ</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{# End Nội dung trong block content #}

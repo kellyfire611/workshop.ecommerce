@@ -1,0 +1,158 @@
+{# Kế thừa layout frontend #}
+{% extends "frontend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Giỏ hàng
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Giỏ hàng
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{% block customstyles %}
+<style>
+    .img-product {
+        width: 150px;
+        height: 150px;
+    }
+</style>
+{% endblock %}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="container mt-4">
+    <div id="errors-container" class="alert alert-danger d-none face" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <h1 class="text-center">Giỏ hàng</h1>
+    <div class="row">
+        <div class="col col-md-12">
+            {% if cartdata %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ảnh đại diện</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="datarow">
+                    {% set subtoal = 0 %}
+                    {% for product in cartdata %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if product.image %}
+                            <img src="/assets/uploads/{{ product.image }}" class="img-product" />
+                            {% else %}
+                            <img src="/assets/shared/img/default-image_600.png" class="img-product" />
+                            {% endif %}
+                        </td>
+                        <td>{{ product.product_name }}</td>
+                        <td>
+                            <span class="product-quantity">{{ product.quantity }}</span>
+                        </td>
+                        <td class="text-right">
+                            <!-- Hiển thị Thông tin Giảm giá nếu có -->
+                            {% if product.discount_amount > 0 %}
+                                {% if product.is_fixed %}
+                                <span class="badge badge-danger">Giảm {{ product.discount_amount|number_format(0, '.', ',') }}</span>
+                                {% else %}
+                                <span class="badge badge-danger">Giảm {{ product.discount_amount|number_format(2, '.', ',') }} %</span>
+                                {% endif %}
+
+                                <span class="product-price">{{ product.list_price_after_discount|number_format(0, '.', ',') }}</span>
+                                <br />
+                                <span class="product-price-old">{{ product.list_price|number_format(0, '.', ',') }}</span>
+                            {% else %}
+                                <span class="product-price">{{ product.list_price|number_format(0, '.', ',') }}</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-right">
+                            <span class="product-amount"><b>{{ (product.amount)|number_format(0, '.', ',') }}</b></span>
+                        </td>
+                        <td>
+                            <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `id` -->
+                            <a id="delete_{{ loop.index }}" data-id="{{ product.id }}" class="btn btn-danger btn-delete-product">
+                                <i class="fa fa-trash" aria-hidden="true"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                    {% set subtoal = subtoal + product.amount %}
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Tổng số: <b>{{ cartdata|length }} Sản phẩm</b></td>
+                        <td class="text-right">Tổng thành tiền:</td>
+                        <td class="text-right"><b>{{ subtoal|number_format(0, '.', ',') }}</b></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            {% else %}
+            <h2>Giỏ hàng rỗng!!!</h2>
+            {% endif %}
+
+            <a href="/" class="btn btn-warning btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Quay
+                về trang chủ</a>
+            <a href="/frontend/checkout/onepage-checkout.php" class="btn btn-primary btn-md"><i class="fa fa-shopping-cart"
+                    aria-hidden="true"></i>&nbsp;Thanh toán</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{# End Nội dung trong block content #}
+
+{% block customscripts %}
+<script>
+    $(document).ready(function () {
+        // Hàm xóa sản phẩm khỏi giỏ hàng
+        function removeProductFromCart(id) {
+            // Chuân bị dữ liệu gởi đến Server
+            var dulieugoi = {
+                id: id
+            };
+
+            $.ajax({
+                url: '/frontend/ajax/cart-removeproduct-ajax',
+                method: "POST",
+                dataType: 'json',
+                data: dulieugoi,
+                success: function (data) {
+                    // Refresh lại trang
+                    location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+
+                    var htmlString = `<h1>Không thể xử lý</h1>`;
+                    $('#errors-container').html(htmlString);
+
+                    // Hiện thông báo
+                    $('.alert').removeClass('d-none').addClass('show');
+                }
+            });
+        };
+
+        $('.btn-delete-product').on('click', function () {
+            event.preventDefault();
+            var id = $(this).data('id');
+            console.log(id);
+
+            removeProductFromCart(id);
+        });
+    });
+</script>
+{% endblock %}
