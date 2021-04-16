@@ -2,9 +2,9 @@
 // Hiển thị tất cả lỗi trong PHP
 // Chỉ nên hiển thị lỗi khi đang trong môi trường Phát triển (Development)
 // Không nên hiển thị lỗi trên môi trường Triển khai (Production)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+// error_reporting(E_ALL);
 
 // Load các thư viện (packages) do Composer quản lý vào chương trình
 require_once __DIR__.'/vendor/autoload.php';
