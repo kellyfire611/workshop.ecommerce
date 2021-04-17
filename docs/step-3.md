@@ -21,7 +21,11 @@
     public static $DB_CONNECTION_DATABASE_NAME  = 'admin_ws1';
 ```
 
-# Step 3.1: tạo AJAX gởi request cho STRIPE
+# Step 3.2: hiệu chỉnh đường dẫn các resource
+- Sử dụng tính năng Replace All của Visual Studio code
+- Thay thế `/assets/` thành `/assets/workshop.ecommerce/`
+
+# Step 3.3: tạo AJAX gởi request cho STRIPE
 - Sử dụng `Visual Studio Code` -> sử dụng `Open Folder` mở source code hiện tại `c:\xampp\htdocs\workshop.ecommerce`
 - Tạo file tên `frontend/ajax/create-checkout-session.php`.
 - Nội dung file:
@@ -70,7 +74,7 @@ echo json_encode([ 'id' => $session->id ]);
 - Thay thế `http://workshop.ecommerce.nentang.vn` thành tên miền đang chạy của bạn, có thể là `http://localhost:1000/workshop.ecommerce/`
 - Thay thế chỗ `setApiKey` thành secret key của bạn.
 
-# Step 3.2: bổ sung nút Thanh toán bằng Stripe trên giao diện
+# Step 3.4: bổ sung nút Thanh toán bằng Stripe trên giao diện
 - Mở file tên `templates/frontend/checkout/onepage-checkout.html.twig`.
 - Bổ sung vào dòng `137` như sau:
 ```html
