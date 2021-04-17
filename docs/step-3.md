@@ -1,3 +1,9 @@
+# Khởi tạo Database
+- Download tool HeidiSQL: [https://www.heidisql.com/installers/HeidiSQL_11.2.0.6213_Setup.exe](https://www.heidisql.com/installers/HeidiSQL_11.2.0.6213_Setup.exe)
+- Đảm bảo đã Khởi động MySQL Server
+- Kết nối HeidiSQL và khởi tạo database mới với tên `admin_ws1`
+- Chạy file script `db/ecommerce_db.sql` để khởi tạo db.
+
 # Step 3: viết code tích hợp cổng thanh toán Stripe vào trang web
 ## Xem tài liệu dành cho Developer
 - Truy cập: [https://stripe.com/docs/development](https://stripe.com/docs/development)
