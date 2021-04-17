@@ -10,6 +10,17 @@
 
 ![Tài liệu dành cho nhà phát triển Stripe](assets/img/Stripe_Doc_1.png)
 
+# Step 3.1: kết nối trang web với database vừa tạo
+- Sử dụng `Visual Studio Code` để tiến hành viết code. [https://code.visualstudio.com/](https://code.visualstudio.com/)
+- Mở `Visual Studio Code` -> `Open Folder` đến thư mục gốc của dự án `c:\xampp\htdocs\workshop.ecommerce`
+- Hiệu chỉnh file thông số kết nối database `config.php` như sau:
+```php
+    public static $DB_CONNECTION_HOST           = 'localhost';
+    public static $DB_CONNECTION_USERNAME       = 'root';
+    public static $DB_CONNECTION_PASSWORD       = '';
+    public static $DB_CONNECTION_DATABASE_NAME  = 'admin_ws1';
+```
+
 # Step 3.1: tạo AJAX gởi request cho STRIPE
 - Sử dụng `Visual Studio Code` -> sử dụng `Open Folder` mở source code hiện tại `c:\xampp\htdocs\workshop.ecommerce`
 - Tạo file tên `frontend/ajax/create-checkout-session.php`.
