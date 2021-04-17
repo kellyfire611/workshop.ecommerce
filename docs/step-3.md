@@ -23,7 +23,7 @@
 
 # Step 3.2: hiệu chỉnh đường dẫn các resource
 - Sử dụng tính năng Replace All của Visual Studio code
-- Thay thế `/assets/` thành `/assets/workshop.ecommerce/`
+- Thay thế `/assets/` thành `/workshop.ecommerce/assets/`
 
 # Step 3.3: tạo AJAX gởi request cho STRIPE
 - Sử dụng `Visual Studio Code` -> sử dụng `Open Folder` mở source code hiện tại `c:\xampp\htdocs\workshop.ecommerce`
