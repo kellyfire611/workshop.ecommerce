@@ -2,7 +2,4 @@
 - Link demo: [http://workshop.ecommerce.nentang.vn/]
 
 # Mục lục
-- Step 0: [chuẩn bị môi trường demo](step-0.md)
-- Step 1: [tạo tài khoản Stripe](step-1.md)
-- Step 2: [sử dụng màn hình Quản trị với Stripe](step-2.md)
-- Step 3: [viết code tích hợp cổng thanh toán Stripe vào trang web](step-3.md)
+- Xem hướng dẫn chi tiết tại [Khóa học Chuyên đề Tích hợp Cổng thanh toán vào ứng dụng Thương mại Điện tử](https://nentang.vn/app/edu/khoa-hoc/chuyen-de/workshop-tich-hop-cong-thanh-toan-truc-tuyen-trong-trang-web-thuong-mai-dien-tu)

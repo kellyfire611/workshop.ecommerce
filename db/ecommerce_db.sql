@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `acl_users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=222 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table admin_ws1.acl_users: ~4 rows (approximately)
+-- Dumping data for table admin_ws1.acl_users: ~21 rows (approximately)
 /*!40000 ALTER TABLE `acl_users` DISABLE KEYS */;
 INSERT INTO `acl_users` (`id`, `username`, `password`, `last_name`, `first_name`, `gender`, `email`, `birthday`, `avatar`, `code`, `job_title`, `department`, `manager_id`, `phone`, `address1`, `address2`, `city`, `state`, `postal_code`, `country`, `remember_token`, `active_code`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'dnpcuong', 'a29c57c6894dee6e8251510d58c07078ee3f49bf', 'Dương Nguyễn Phú', 'Cường', 0, 'phucuong@ctu.edu.vn', NULL, 'avatars/dnpcuong_20200217161415.jpg', NULL, 'Developer', 'CUSC Software', NULL, '0915-659-223', '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều', NULL, 'Cần Thơ', NULL, '64000', 'Vietnam', NULL, NULL, NULL, '2020-02-12 16:17:49', NULL),
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `shop_customers` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table admin_ws1.shop_customers: ~101 rows (approximately)
+-- Dumping data for table admin_ws1.shop_customers: ~102 rows (approximately)
 /*!40000 ALTER TABLE `shop_customers` DISABLE KEYS */;
 INSERT INTO `shop_customers` (`id`, `username`, `password`, `last_name`, `first_name`, `gender`, `email`, `birthday`, `avatar`, `code`, `company`, `phone`, `billing_address`, `shipping_address`, `city`, `state`, `postal_code`, `country`, `remember_token`, `activate_code`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'kellyfire', 'dae9e9c1f4ce3b7289bf4114cde40bdbbd339f03', 'Dương Nguyễn Phú', 'Cường', 0, 'kellyfire611@gmail.com', '1989-06-11 04:00:00', 'customers/avatars/kellyfire_20200217161335.jpg', '', 'NenTang', '0915-659-223', '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều, TP Cần Thơ', '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều, TP Cần Thơ', 'Cần Thơ', '', '65000', 'Vietnam', NULL, NULL, 1, '2020-02-23 20:31:30', '2020-02-23 20:31:30'),
@@ -1699,7 +1699,7 @@ CREATE TABLE IF NOT EXISTS `shop_payment_types` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `category_code` (`payment_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
 -- Dumping data for table admin_ws1.shop_payment_types: ~4 rows (approximately)
 /*!40000 ALTER TABLE `shop_payment_types` DISABLE KEYS */;
@@ -1707,7 +1707,8 @@ INSERT INTO `shop_payment_types` (`id`, `payment_code`, `payment_name`, `descrip
 	(1, 'CK', 'Chuyển khoản', NULL, NULL, '2020-02-24 00:33:13', '2020-02-24 00:33:13'),
 	(2, 'Paypal', 'Thanh toán Paypal', NULL, NULL, '2020-02-24 00:33:37', NULL),
 	(3, 'NHTT', 'Nhận hàng rồi trả tiền', NULL, NULL, '2020-02-24 00:33:58', NULL),
-	(4, 'TM', 'Tiền mặt', NULL, NULL, '2020-02-24 00:37:05', NULL);
+	(4, 'TM', 'Tiền mặt', NULL, NULL, '2020-02-24 00:37:05', NULL),
+	(5, 'Stripe', 'Thanh toán Stripe', NULL, NULL, '2021-06-12 02:55:04', '2021-06-12 02:55:05');
 /*!40000 ALTER TABLE `shop_payment_types` ENABLE KEYS */;
 
 -- Dumping structure for table admin_ws1.shop_products
