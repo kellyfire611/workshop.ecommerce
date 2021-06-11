@@ -37,7 +37,7 @@ Danh sách Nhà cung cấp
         {% for supplier in suppliers %}
         <tr>
             <td>
-                <img src="/assets/uploads/{{ supplier.image }}" class="img-thumbnail"/>
+                <img src="{{ root_url }}/assets/uploads/{{ supplier.image }}" class="img-thumbnail"/>
             </td>
             <td>{{ supplier.supplier_code }}</td>
             <td>{{ supplier.supplier_name }}</td>

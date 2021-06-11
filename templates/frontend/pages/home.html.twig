@@ -9,8 +9,8 @@ Bảng tin
 
 {% block customstyles %}
 <!-- Add CSS thư viện SLICK -->
-<link rel="stylesheet" type="text/css" href="/assets/vendor/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="/assets/vendor/slick/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="{{ root_url }}/assets/vendor/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="{{ root_url }}/assets/vendor/slick/slick-theme.css"/>
 
 <style>
     * {
@@ -70,7 +70,7 @@ Bảng tin
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/assets/frontend/img/slider-1.jpg" />
+            <img src="{{ root_url }}/assets/frontend/img/slider-1.jpg" />
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1>Nền Tảng - Nơi mua sắm tuyệt vời</h1>
@@ -79,7 +79,7 @@ Bảng tin
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/assets/frontend/img/slider-2.jpg" />
+            <img src="{{ root_url }}/assets/frontend/img/slider-2.jpg" />
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Hàng triệu sản phẩm - Lựa chọn mỏi tay</h1>
@@ -88,7 +88,7 @@ Bảng tin
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/assets/frontend/img/slider-3.jpg" />
+            <img src="{{ root_url }}/assets/frontend/img/slider-3.jpg" />
             <div class="container">
                 <div class="carousel-caption text-right">
                     <h1>Chất lượng là Hàng đầu.</h1>
@@ -113,19 +113,19 @@ Bảng tin
     <div class="row">
         <div class="col-lg-4">
             <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-                src="/assets/frontend/img/icon-1.png" />
+                src="{{ root_url }}/assets/frontend/img/icon-1.png" />
             <h2>Đặt hàng</h2>
             <p>Chọn sản phẩm bạn yêu thích, và Đặt hàng.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-                src="/assets/frontend/img/icon-2.png" />
+                src="{{ root_url }}/assets/frontend/img/icon-2.png" />
             <h2>Tạo đơn hàng</h2>
             <p>Theo dõi đơn hàng của bạn.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-                src="/assets/frontend/img/icon-3.png" />
+                src="{{ root_url }}/assets/frontend/img/icon-3.png" />
             <h2>Giao hàng</h2>
             <p>Giao hàng tận nơi.</p>
         </div><!-- /.col-lg-4 -->
@@ -143,7 +143,7 @@ Bảng tin
             <p class="lead">Nơi mua sắm tuyệt vời cho mọi lứa tuổi.</p>
         </div>
         <div class="col-md-5">
-            <img src="/assets/frontend/img/marketing-1.png" />
+            <img src="{{ root_url }}/assets/frontend/img/marketing-1.png" />
         </div>
     </div>
 
@@ -156,7 +156,7 @@ Bảng tin
             <p class="lead">Hệ thống theo dõi đơn hàng chi tiết, thông tin mọi lúc mọi nơi.</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="/assets/frontend/img/marketing-2.png" />
+            <img src="{{ root_url }}/assets/frontend/img/marketing-2.png" />
         </div>
     </div>
 
@@ -188,9 +188,9 @@ Bảng tin
 
                         {% if product.image %}
                         <div class="container-img">
-                            <a href="/frontend/product/detail.php?id={{ product.id }}">
+                            <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    src="/assets/uploads/{{ product.image }}" />
+                                    src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                             </a>
                             <div class="overlay-img">
                                 <a href="https://nentang.vn">Nền tảng - Hành trang tới tương lai</a>
@@ -199,9 +199,9 @@ Bảng tin
 
                         {% else %}
                         <div class="container-img">
-                            <a href="/frontend/product/detail.php?id={{ product.id }}">
+                            <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    src="/assets/shared/img/default-image_600.png" />
+                                    src="{{ root_url }}/assets/shared/img/default-image_600.png" />
                             </a>
                             <div class="overlay-img">
                                 <a href="https://nentang.vn">Nền tảng - Hành trang tới tương lai</a>
@@ -210,7 +210,7 @@ Bảng tin
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <a href="/frontend/product/detail.php?id={{ product.id }}">
+                        <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                             <h5>{{ product.product_name }}</h5>
                         </a>
                         <h6>{{ product.category_name }}</h6>
@@ -218,7 +218,7 @@ Bảng tin
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary"
-                                    href="/frontend/product/detail.php?id={{ product.id }}">Xem chi tiết</a>
+                                    href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">Xem chi tiết</a>
                             </div>
                             <small class="text-muted text-right">
                                 <s>{{ product.sp_giacu }}</s>
@@ -255,9 +255,9 @@ Bảng tin
 
                         {% if product.image %}
                         <div class="container-img">
-                            <a href="/frontend/product/detail.php?id={{ product.id }}">
+                            <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    src="/assets/uploads/{{ product.image }}" />
+                                    src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                             </a>
                             <div class="overlay-img">
                                 <a href="https://nentang.vn">Nền tảng - Hành trang tới tương lai</a>
@@ -266,9 +266,9 @@ Bảng tin
 
                         {% else %}
                         <div class="container-img">
-                            <a href="/frontend/product/detail.php?id={{ product.id }}">
+                            <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    src="/assets/shared/img/default-image_600.png" />
+                                    src="{{ root_url }}/assets/shared/img/default-image_600.png" />
                             </a>
                             <div class="overlay-img">
                                 <a href="https://nentang.vn">Nền tảng - Hành trang tới tương lai</a>
@@ -277,7 +277,7 @@ Bảng tin
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <a href="/frontend/product/detail.php?id={{ product.id }}">
+                        <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                             <h5>{{ product.product_name }}</h5>
                         </a>
                         <h6>{{ product.category_name }}</h6>
@@ -285,7 +285,7 @@ Bảng tin
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary"
-                                    href="/frontend/product/detail.php?id={{ product.id }}">Xem chi tiết</a>
+                                    href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">Xem chi tiết</a>
                             </div>
                             <small class="text-muted text-right">
                                 <s>{{ product.sp_giacu }}</s>
@@ -327,9 +327,9 @@ Bảng tin
     
                         {% if product.image %}
                         <div class="container-img">
-                            <a href="/frontend/product/detail.php?id={{ product.id }}">
+                            <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    src="/assets/uploads/{{ product.image }}" />
+                                    src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                             </a>
                             <div class="overlay-img">
                                 <a href="https://nentang.vn">Nền tảng - Hành trang tới tương lai</a>
@@ -338,9 +338,9 @@ Bảng tin
     
                         {% else %}
                         <div class="container-img">
-                            <a href="/frontend/product/detail.php?id={{ product.id }}">
+                            <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="350"
-                                    src="/assets/shared/img/default-image_600.png" />
+                                    src="{{ root_url }}/assets/shared/img/default-image_600.png" />
                             </a>
                             <div class="overlay-img">
                                 <a href="https://nentang.vn">Nền tảng - Hành trang tới tương lai</a>
@@ -349,7 +349,7 @@ Bảng tin
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <a href="/frontend/product/detail.php?id={{ product.id }}">
+                        <a href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">
                             <h5>{{ product.product_name }}</h5>
                         </a>
                         <h6>{{ product.category_name }}</h6>
@@ -357,7 +357,7 @@ Bảng tin
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary"
-                                    href="/frontend/product/detail.php?id={{ product.id }}">Xem chi tiết</a>
+                                    href="{{ root_url }}/frontend/product/detail.php?id={{ product.id }}">Xem chi tiết</a>
                             </div>
                             <small class="text-muted text-right">
                                 <s>{{ product.sp_giacu }}</s>
@@ -384,13 +384,13 @@ Bảng tin
 
 {% block customscripts %}
 <!-- Add JS thư viện SLICK -->
-<script src="/assets/vendor/slick/slick.min.js"></script>
+<script src="{{ root_url }}/assets/vendor/slick/slick.min.js"></script>
 
 <script>
     $(function () {
         // Nếu ảnh bị hư => thay thế bằng ảnh mặc định
         $('img').on("error", function() {
-            $(this).attr('src', '/assets/shared/img/default-image_600.png');
+            $(this).attr('src', '{{ root_url }}/assets/shared/img/default-image_600.png');
         });
         function imageLoaded(image) {
             // function to invoke for loaded image

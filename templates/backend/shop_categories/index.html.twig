@@ -37,7 +37,7 @@ Danh sách Chuyên mục
         {% for category in categories.data %}
         <tr>
             <td>
-                <img src="/assets/uploads/{{ category.image }}" class="img-thumbnail"/>
+                <img src="{{ root_url }}/assets/uploads/{{ category.image }}" class="img-thumbnail"/>
             </td>
             <td>{{ category.category_code }}</td>
             <td>{{ category.category_name }}</td>

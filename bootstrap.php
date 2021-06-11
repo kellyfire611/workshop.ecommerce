@@ -31,3 +31,4 @@ $twig = new \Twig\Environment($loader, [
 
 // Tạo biến global để có thể sử dụng trong tất cả các view được render bởi TWIG
 $twig->addGlobal('session', $_SESSION);
+$twig->addGlobal('root_url', Config::$root_url);

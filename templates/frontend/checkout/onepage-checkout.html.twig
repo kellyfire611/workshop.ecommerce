@@ -22,7 +22,7 @@ Thanh toán
 {# Nội dung trong block content #}
 {% block content %}
 <div class="container mt-4">
-    <form class="needs-validation" id="frmCheckOut" name="frmCheckOut" method="post" action="/frontend/checkout/onepage-checkout.php">
+    <form class="needs-validation" id="frmCheckOut" name="frmCheckOut" method="post" action="{{ root_url }}/frontend/checkout/onepage-checkout.php">
         <input type="hidden" name="customer_email" value="{{ customer.email }}" />
 
         <div class="py-5 text-center">

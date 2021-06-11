@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.4.11-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             10.3.0.5771
+-- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,8 +11,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Dumping structure for table netashop.acl_model_has_permissions
+-- Dumping structure for table admin_ws1.acl_model_has_permissions
 CREATE TABLE IF NOT EXISTS `acl_model_has_permissions` (
   `permission_id` bigint(20) unsigned NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -22,13 +21,13 @@ CREATE TABLE IF NOT EXISTS `acl_model_has_permissions` (
   CONSTRAINT `FK_model_has_permissions` FOREIGN KEY (`permission_id`) REFERENCES `acl_permissions` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.acl_model_has_permissions: ~0 rows (approximately)
+-- Dumping data for table admin_ws1.acl_model_has_permissions: ~0 rows (approximately)
 /*!40000 ALTER TABLE `acl_model_has_permissions` DISABLE KEYS */;
 INSERT INTO `acl_model_has_permissions` (`permission_id`, `model_type`, `model_id`) VALUES
 	(2, 'App\\Models\\Auth\\User', 1);
 /*!40000 ALTER TABLE `acl_model_has_permissions` ENABLE KEYS */;
 
--- Dumping structure for table netashop.acl_model_has_roles
+-- Dumping structure for table admin_ws1.acl_model_has_roles
 CREATE TABLE IF NOT EXISTS `acl_model_has_roles` (
   `role_id` bigint(20) unsigned NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -38,14 +37,14 @@ CREATE TABLE IF NOT EXISTS `acl_model_has_roles` (
   CONSTRAINT `FK_model_has_roles` FOREIGN KEY (`role_id`) REFERENCES `acl_roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.acl_model_has_roles: ~2 rows (approximately)
+-- Dumping data for table admin_ws1.acl_model_has_roles: ~2 rows (approximately)
 /*!40000 ALTER TABLE `acl_model_has_roles` DISABLE KEYS */;
 INSERT INTO `acl_model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(1, 'App\\Models\\Auth\\User', 1),
 	(2, 'App\\Models\\Auth\\User', 2);
 /*!40000 ALTER TABLE `acl_model_has_roles` ENABLE KEYS */;
 
--- Dumping structure for table netashop.acl_permissions
+-- Dumping structure for table admin_ws1.acl_permissions
 CREATE TABLE IF NOT EXISTS `acl_permissions` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -56,14 +55,14 @@ CREATE TABLE IF NOT EXISTS `acl_permissions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.acl_permissions: ~2 rows (approximately)
+-- Dumping data for table admin_ws1.acl_permissions: ~2 rows (approximately)
 /*!40000 ALTER TABLE `acl_permissions` DISABLE KEYS */;
 INSERT INTO `acl_permissions` (`id`, `name`, `display_name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'backend-view', 'Xem chức năng Quản trị Hệ thống', 'web', '2019-12-09 03:10:11', '2019-12-09 03:10:11'),
 	(2, 'suppliers-view', 'Xem chức năng Nhà cung cấp', 'web', '2020-02-12 16:29:29', NULL);
 /*!40000 ALTER TABLE `acl_permissions` ENABLE KEYS */;
 
--- Dumping structure for table netashop.acl_roles
+-- Dumping structure for table admin_ws1.acl_roles
 CREATE TABLE IF NOT EXISTS `acl_roles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -75,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `acl_roles` (
   KEY `roles_name_index` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.acl_roles: ~4 rows (approximately)
+-- Dumping data for table admin_ws1.acl_roles: ~4 rows (approximately)
 /*!40000 ALTER TABLE `acl_roles` DISABLE KEYS */;
 INSERT INTO `acl_roles` (`id`, `name`, `display_name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'administrator', 'Quản trị Hệ thống', 'web', '2019-12-09 03:10:11', '2019-12-09 03:10:11'),
@@ -84,7 +83,7 @@ INSERT INTO `acl_roles` (`id`, `name`, `display_name`, `guard_name`, `created_at
 	(4, 'customer', 'Khách hàng', 'web', '2020-02-17 14:09:53', '2020-02-17 14:09:56');
 /*!40000 ALTER TABLE `acl_roles` ENABLE KEYS */;
 
--- Dumping structure for table netashop.acl_role_has_permissions
+-- Dumping structure for table admin_ws1.acl_role_has_permissions
 CREATE TABLE IF NOT EXISTS `acl_role_has_permissions` (
   `permission_id` bigint(20) unsigned NOT NULL,
   `role_id` bigint(20) unsigned NOT NULL,
@@ -94,13 +93,13 @@ CREATE TABLE IF NOT EXISTS `acl_role_has_permissions` (
   CONSTRAINT `FK_role_has_permissions_role_id` FOREIGN KEY (`role_id`) REFERENCES `acl_roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.acl_role_has_permissions: ~0 rows (approximately)
+-- Dumping data for table admin_ws1.acl_role_has_permissions: ~0 rows (approximately)
 /*!40000 ALTER TABLE `acl_role_has_permissions` DISABLE KEYS */;
 INSERT INTO `acl_role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(1, 1);
 /*!40000 ALTER TABLE `acl_role_has_permissions` ENABLE KEYS */;
 
--- Dumping structure for table netashop.acl_users
+-- Dumping structure for table admin_ws1.acl_users
 CREATE TABLE IF NOT EXISTS `acl_users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên đăng nhập',
@@ -132,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `acl_users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=222 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.acl_users: ~21 rows (approximately)
+-- Dumping data for table admin_ws1.acl_users: ~4 rows (approximately)
 /*!40000 ALTER TABLE `acl_users` DISABLE KEYS */;
 INSERT INTO `acl_users` (`id`, `username`, `password`, `last_name`, `first_name`, `gender`, `email`, `birthday`, `avatar`, `code`, `job_title`, `department`, `manager_id`, `phone`, `address1`, `address2`, `city`, `state`, `postal_code`, `country`, `remember_token`, `active_code`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'dnpcuong', 'a29c57c6894dee6e8251510d58c07078ee3f49bf', 'Dương Nguyễn Phú', 'Cường', 0, 'phucuong@ctu.edu.vn', NULL, 'avatars/dnpcuong_20200217161415.jpg', NULL, 'Developer', 'CUSC Software', NULL, '0915-659-223', '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều', NULL, 'Cần Thơ', NULL, '64000', 'Vietnam', NULL, NULL, NULL, '2020-02-12 16:17:49', NULL),
@@ -158,7 +157,7 @@ INSERT INTO `acl_users` (`id`, `username`, `password`, `last_name`, `first_name`
 	(220, 'user20', '68c9fc4c03dff5d734aab9787b5ea01d7d88aa85', 'Hunter', 'Bonnie', 1, 'bhunterj@ucsd.edu', NULL, 'avatars/logo-nentang.jpg', NULL, 'Analog Circuit Design manager', 'Baby', NULL, '1-(320)933-5140', '99 Arapahoe Terrace', NULL, 'Saint Cloud', 'Minnesota', '56372', 'United States', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `acl_users` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_categories
+-- Dumping structure for table admin_ws1.shop_categories
 CREATE TABLE IF NOT EXISTS `shop_categories` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `category_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã chuyên mục',
@@ -171,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `shop_categories` (
   UNIQUE KEY `category_code` (`category_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_categories: ~4 rows (approximately)
+-- Dumping data for table admin_ws1.shop_categories: ~4 rows (approximately)
 /*!40000 ALTER TABLE `shop_categories` DISABLE KEYS */;
 INSERT INTO `shop_categories` (`id`, `category_code`, `category_name`, `description`, `image`, `created_at`, `updated_at`) VALUES
 	(1, 'CAT1', 'Laptop', 'All laptop products', 'categories/laptop_20200217170111.jpg', NULL, NULL),
@@ -180,7 +179,7 @@ INSERT INTO `shop_categories` (`id`, `category_code`, `category_name`, `descript
 	(4, 'CAT4', 'Tablet', 'Tablet', 'categories/tablet_20200217170111.jpg', NULL, NULL);
 /*!40000 ALTER TABLE `shop_categories` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_customers
+-- Dumping structure for table admin_ws1.shop_customers
 CREATE TABLE IF NOT EXISTS `shop_customers` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên đăng nhập',
@@ -207,9 +206,9 @@ CREATE TABLE IF NOT EXISTS `shop_customers` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_customers: ~100 rows (approximately)
+-- Dumping data for table admin_ws1.shop_customers: ~101 rows (approximately)
 /*!40000 ALTER TABLE `shop_customers` DISABLE KEYS */;
 INSERT INTO `shop_customers` (`id`, `username`, `password`, `last_name`, `first_name`, `gender`, `email`, `birthday`, `avatar`, `code`, `company`, `phone`, `billing_address`, `shipping_address`, `city`, `state`, `postal_code`, `country`, `remember_token`, `activate_code`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'kellyfire', 'dae9e9c1f4ce3b7289bf4114cde40bdbbd339f03', 'Dương Nguyễn Phú', 'Cường', 0, 'kellyfire611@gmail.com', '1989-06-11 04:00:00', 'customers/avatars/kellyfire_20200217161335.jpg', '', 'NenTang', '0915-659-223', '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều, TP Cần Thơ', '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều, TP Cần Thơ', 'Cần Thơ', '', '65000', 'Vietnam', NULL, NULL, 1, '2020-02-23 20:31:30', '2020-02-23 20:31:30'),
@@ -312,27 +311,29 @@ INSERT INTO `shop_customers` (`id`, `username`, `password`, `last_name`, `first_
 	(98, 'customer98', 'dae9e9c1f4ce3b7289bf4114cde40bdbbd339f03', 'Parker', 'Emily', 0, 'eparker2p@4shared.com', NULL, '', '', 'Skalith', '1-(330)637-4894', '0 Old Shore Center', NULL, 'Akron', 'Ohio', '44310', 'United States', NULL, NULL, 1, NULL, NULL),
 	(99, 'customer99', 'dae9e9c1f4ce3b7289bf4114cde40bdbbd339f03', 'Chavez', 'Jeremy', 0, 'jchavez2q@businessweek.com', NULL, '', '', 'Topicware', '1-(515)769-2045', '8584 Jay Street', NULL, 'Des Moines', 'Iowa', '50335', 'United States', NULL, NULL, 1, NULL, NULL),
 	(100, 'customer100', 'dae9e9c1f4ce3b7289bf4114cde40bdbbd339f03', 'Kim', 'Pamela', 0, 'pkim2r@stumbleupon.com', NULL, '', '', 'Photolist', '1-(510)144-4318', '3688 Gerald Trail', NULL, 'Sacramento', 'California', '95823', 'United States', NULL, NULL, 1, NULL, NULL),
-	(104, 'nentangtoituonglai@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Phú', 'CUONG', 0, 'nentangtoituonglai@gmail.com', '1989-06-11 00:00:00', NULL, '362209685', 'NenTang', '0915659223', '130 Xo Viet Nghe Tinh', '130 Xo Viet Nghe Tinh', 'Quan Ninh Kieu', 'Cần Thơ', '94000', 'Việt Nam', NULL, 'bb455ad0491e4804fee04f78f54be4967b8087e0', 1, '2020-02-21 23:28:28', NULL);
+	(104, 'nentangtoituonglai@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Phú', 'CUONG', 0, 'nentangtoituonglai@gmail.com', '1989-06-11 00:00:00', NULL, '362209685', 'NenTang', '0915659223', '130 Xo Viet Nghe Tinh', '130 Xo Viet Nghe Tinh', 'Quan Ninh Kieu', 'Cần Thơ', '94000', 'Việt Nam', NULL, 'bb455ad0491e4804fee04f78f54be4967b8087e0', 1, '2020-02-21 23:28:28', NULL),
+	(105, 'Dương Nguyễn Phú Cường', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Dương Nguyễn Phú', 'Cường', 0, 'phucuong@ctu.edu.vn', '1989-06-11 00:00:00', 'customers/avatars/logo-nentang_20210611214319.jpg', '362209685', 'CUSC', '0915659223', '01 Lý Tự Trọng, Ninh Kiều, Cần Thơ', 'ĐHCT Khu II, đường 3/2, phường Hưng Lợi, Quận Ninh Kiều, TP Cần Thơ', 'Cần Thơ', '', '900000', 'Việt Nam', NULL, '39088e6b6ad1271aa2bd879218409ef64a7eff69', 1, '2021-06-11 21:43:19', NULL);
 /*!40000 ALTER TABLE `shop_customers` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_customer_vouchers
+-- Dumping structure for table admin_ws1.shop_customer_vouchers
 CREATE TABLE IF NOT EXISTS `shop_customer_vouchers` (
   `customer_id` bigint(20) unsigned NOT NULL COMMENT 'Khách hàng nào?',
   `voucher_id` bigint(20) unsigned NOT NULL COMMENT 'Voucher nào áp dụng?',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   KEY `FK_shop_customer_vouchers_shop_vouchers` (`voucher_id`),
+  KEY `FK_shop_customer_vouchers_shop_customers` (`customer_id`),
   CONSTRAINT `FK_shop_customer_vouchers_shop_customers` FOREIGN KEY (`customer_id`) REFERENCES `shop_customers` (`id`),
   CONSTRAINT `FK_shop_customer_vouchers_shop_vouchers` FOREIGN KEY (`voucher_id`) REFERENCES `shop_vouchers` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Table lưu thông tin Khách hàng nào được áp dụng Voucher nào?\r\nCó thể lập danh sách Khách hàng bằng cách:\r\n- Tạo chức năng tự động tạo Voucher cho Khách hàng thân thiết (mua nhiều hàng hóa trong năm, ...) khi đến sinh nhật của họ.\r\n- Người thân của Giám đốc ;)';
 
--- Dumping data for table netashop.shop_customer_vouchers: ~0 rows (approximately)
+-- Dumping data for table admin_ws1.shop_customer_vouchers: ~0 rows (approximately)
 /*!40000 ALTER TABLE `shop_customer_vouchers` DISABLE KEYS */;
 INSERT INTO `shop_customer_vouchers` (`customer_id`, `voucher_id`, `created_at`, `updated_at`) VALUES
 	(1, 2, '2020-02-17 16:08:01', NULL);
 /*!40000 ALTER TABLE `shop_customer_vouchers` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_orders
+-- Dumping structure for table admin_ws1.shop_orders
 CREATE TABLE IF NOT EXISTS `shop_orders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `employee_id` bigint(20) unsigned NOT NULL COMMENT 'Thuộc nhân viên nào xử lý',
@@ -361,7 +362,7 @@ CREATE TABLE IF NOT EXISTS `shop_orders` (
   CONSTRAINT `FK_shop_orders_shop_payment_types` FOREIGN KEY (`payment_type_id`) REFERENCES `shop_payment_types` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4601 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_orders: ~600 rows (approximately)
+-- Dumping data for table admin_ws1.shop_orders: ~600 rows (approximately)
 /*!40000 ALTER TABLE `shop_orders` DISABLE KEYS */;
 INSERT INTO `shop_orders` (`id`, `employee_id`, `customer_id`, `order_date`, `shipped_date`, `ship_name`, `ship_address1`, `ship_address2`, `ship_city`, `ship_state`, `ship_postal_code`, `ship_country`, `shipping_fee`, `payment_type_id`, `paid_date`, `order_status`, `created_at`, `updated_at`) VALUES
 	(4001, 204, 40, '2016-04-05 00:00:00', '2016-11-06 00:00:00', 'Jean Fuller', '93 Spohn Place', NULL, 'Manggekompo', NULL, NULL, 'Indonesia', 8.1400, 1, '2016-10-12 00:00:00', 'On Hold', NULL, NULL),
@@ -966,7 +967,7 @@ INSERT INTO `shop_orders` (`id`, `employee_id`, `customer_id`, `order_date`, `sh
 	(4600, 208, 2, '2016-04-26 00:00:00', '2016-04-06 00:00:00', 'Stephen Jacobs', '7131 Scoville Terrace', NULL, 'Phoenix', 'Arizona', '85020', 'United States', 4.5200, 4, '2017-01-22 00:00:00', 'On Hold', NULL, NULL);
 /*!40000 ALTER TABLE `shop_orders` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_order_details
+-- Dumping structure for table admin_ws1.shop_order_details
 CREATE TABLE IF NOT EXISTS `shop_order_details` (
   `order_id` bigint(20) unsigned NOT NULL,
   `product_id` bigint(20) unsigned NOT NULL,
@@ -982,7 +983,7 @@ CREATE TABLE IF NOT EXISTS `shop_order_details` (
   CONSTRAINT `FK_order_details_products` FOREIGN KEY (`product_id`) REFERENCES `shop_products` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_order_details: ~700 rows (approximately)
+-- Dumping data for table admin_ws1.shop_order_details: ~700 rows (approximately)
 /*!40000 ALTER TABLE `shop_order_details` DISABLE KEYS */;
 INSERT INTO `shop_order_details` (`order_id`, `product_id`, `quantity`, `unit_price`, `discount_percentage`, `discount_amout`, `order_detail_status`, `date_allocated`) VALUES
 	(4001, 608, 1.0000, 6234000.0000, 8.73, 0, 'Allocated', '2017-01-15 00:00:00'),
@@ -1687,7 +1688,7 @@ INSERT INTO `shop_order_details` (`order_id`, `product_id`, `quantity`, `unit_pr
 	(4600, 609, 5.0000, 8183000.0000, 8.87, 0, 'Allocated', '2016-06-16 00:00:00');
 /*!40000 ALTER TABLE `shop_order_details` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_payment_types
+-- Dumping structure for table admin_ws1.shop_payment_types
 CREATE TABLE IF NOT EXISTS `shop_payment_types` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `payment_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã hình thức thanh toán',
@@ -1700,7 +1701,7 @@ CREATE TABLE IF NOT EXISTS `shop_payment_types` (
   UNIQUE KEY `category_code` (`payment_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table netashop.shop_payment_types: ~4 rows (approximately)
+-- Dumping data for table admin_ws1.shop_payment_types: ~4 rows (approximately)
 /*!40000 ALTER TABLE `shop_payment_types` DISABLE KEYS */;
 INSERT INTO `shop_payment_types` (`id`, `payment_code`, `payment_name`, `description`, `image`, `created_at`, `updated_at`) VALUES
 	(1, 'CK', 'Chuyển khoản', NULL, NULL, '2020-02-24 00:33:13', '2020-02-24 00:33:13'),
@@ -1709,7 +1710,7 @@ INSERT INTO `shop_payment_types` (`id`, `payment_code`, `payment_name`, `descrip
 	(4, 'TM', 'Tiền mặt', NULL, NULL, '2020-02-24 00:37:05', NULL);
 /*!40000 ALTER TABLE `shop_payment_types` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_products
+-- Dumping structure for table admin_ws1.shop_products
 CREATE TABLE IF NOT EXISTS `shop_products` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `product_code` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã sản phẩm',
@@ -1734,7 +1735,7 @@ CREATE TABLE IF NOT EXISTS `shop_products` (
   CONSTRAINT `FK_products_suppliers` FOREIGN KEY (`supplier_id`) REFERENCES `shop_suppliers` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=611 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_products: ~10 rows (approximately)
+-- Dumping data for table admin_ws1.shop_products: ~10 rows (approximately)
 /*!40000 ALTER TABLE `shop_products` DISABLE KEYS */;
 INSERT INTO `shop_products` (`id`, `product_code`, `product_name`, `image`, `short_description`, `description`, `standard_cost`, `list_price`, `quantity_per_unit`, `discontinued`, `is_featured`, `is_new`, `category_id`, `supplier_id`, `created_at`, `updated_at`) VALUES
 	(601, 'P1', 'Nikkon DS90', 'products/nikkon_ds60_20200217160000.jpg', 'Nikkon DS90 desc', 'Nikkon DS90 desc', 6709000.0000, 2339000.0000, '50', 0, b'1', b'0', 3, 5, NULL, NULL),
@@ -1749,7 +1750,7 @@ INSERT INTO `shop_products` (`id`, `product_code`, `product_name`, `image`, `sho
 	(610, 'P10', 'MacBook Pro', 'products/macbook_pro_20200217160000.jpg', 'MacBook Pro desc', 'MacBook Pro desc', 2581000.0000, 7661000.0000, '11', 0, b'1', b'1', 1, 1, NULL, NULL);
 /*!40000 ALTER TABLE `shop_products` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_product_discounts
+-- Dumping structure for table admin_ws1.shop_product_discounts
 CREATE TABLE IF NOT EXISTS `shop_product_discounts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) unsigned NOT NULL COMMENT 'Thuộc sản phẩm',
@@ -1763,14 +1764,14 @@ CREATE TABLE IF NOT EXISTS `shop_product_discounts` (
   CONSTRAINT `shop_product_discounts_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `shop_products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='Table chứa thông tin các sản phẩm đang được khuyến mãi trong khoảng thời gian (từ ngày - đến ngày hết hạn).\r\nThường dùng cho các chức năng:\r\n- Hiển thị danh sách Sản phẩm với Giá tiền cũ và Giá tiền mới.\r\n- Hiển thị danh sách Sản phẩm với % được giảm giá...';
 
--- Dumping data for table netashop.shop_product_discounts: ~2 rows (approximately)
+-- Dumping data for table admin_ws1.shop_product_discounts: ~2 rows (approximately)
 /*!40000 ALTER TABLE `shop_product_discounts` DISABLE KEYS */;
 INSERT INTO `shop_product_discounts` (`id`, `product_id`, `discount_name`, `discount_amount`, `is_fixed`, `start_date`, `end_date`) VALUES
 	(1, 601, 'Giảm giá dịp lễ Vua Hùng năm 2020', 10, b'0', '2020-02-01 00:00:00', '2020-03-31 23:59:59'),
 	(2, 602, 'Giảm giá dịp lễ 08/03 năm 2020', 15, b'0', '2020-03-01 00:00:00', '2020-03-08 23:59:59');
 /*!40000 ALTER TABLE `shop_product_discounts` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_product_images
+-- Dumping structure for table admin_ws1.shop_product_images
 CREATE TABLE IF NOT EXISTS `shop_product_images` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) unsigned NOT NULL COMMENT 'Thuộc sản phẩm',
@@ -1780,7 +1781,7 @@ CREATE TABLE IF NOT EXISTS `shop_product_images` (
   CONSTRAINT `FK_product_images_products` FOREIGN KEY (`product_id`) REFERENCES `shop_products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_product_images: ~4 rows (approximately)
+-- Dumping data for table admin_ws1.shop_product_images: ~4 rows (approximately)
 /*!40000 ALTER TABLE `shop_product_images` DISABLE KEYS */;
 INSERT INTO `shop_product_images` (`id`, `product_id`, `image`) VALUES
 	(1, 601, 'products/nikkon1_20200217160000.jpg'),
@@ -1789,7 +1790,7 @@ INSERT INTO `shop_product_images` (`id`, `product_id`, `image`) VALUES
 	(4, 606, 'products/nexus1_20200217160000.jpg');
 /*!40000 ALTER TABLE `shop_product_images` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_product_reviews
+-- Dumping structure for table admin_ws1.shop_product_reviews
 CREATE TABLE IF NOT EXISTS `shop_product_reviews` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) unsigned NOT NULL COMMENT 'Sản phẩm Đánh giá',
@@ -1805,7 +1806,7 @@ CREATE TABLE IF NOT EXISTS `shop_product_reviews` (
   CONSTRAINT `FK_shop_product_reviews_shop_customers` FOREIGN KEY (`customer_id`) REFERENCES `shop_customers` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table netashop.shop_product_reviews: ~5 rows (approximately)
+-- Dumping data for table admin_ws1.shop_product_reviews: ~0 rows (approximately)
 /*!40000 ALTER TABLE `shop_product_reviews` DISABLE KEYS */;
 INSERT INTO `shop_product_reviews` (`id`, `product_id`, `customer_id`, `rating`, `comment`, `created_at`, `updated_at`) VALUES
 	(1, 601, 1, 3, 'Chụp ảnh tốt, hình vi diệu... Có điều giá hơi chát, 4s ;P', '2020-02-17 16:03:05', NULL),
@@ -1815,25 +1816,26 @@ INSERT INTO `shop_product_reviews` (`id`, `product_id`, `customer_id`, `rating`,
 	(5, 601, 3, 5, 'Tuyệt vời, mình mua được ngay lúc giảm giá còn 20%. Xài thoải mái, xứng đáng giá tiền sau khi giảm giá ;P', '2020-02-23 19:42:06', NULL);
 /*!40000 ALTER TABLE `shop_product_reviews` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_product_vouchers
+-- Dumping structure for table admin_ws1.shop_product_vouchers
 CREATE TABLE IF NOT EXISTS `shop_product_vouchers` (
   `product_id` bigint(20) unsigned NOT NULL COMMENT 'Sản phẩm nào?',
   `voucher_id` bigint(20) unsigned NOT NULL COMMENT 'Voucher nào áp dụng?',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   KEY `FK_shop_product_vouchers_shop_vouchers` (`voucher_id`),
+  KEY `FK_shop_product_vouchers_shop_products` (`product_id`),
   CONSTRAINT `FK_shop_product_vouchers_shop_products` FOREIGN KEY (`product_id`) REFERENCES `shop_products` (`id`),
   CONSTRAINT `FK_shop_product_vouchers_shop_vouchers` FOREIGN KEY (`voucher_id`) REFERENCES `shop_vouchers` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='Table lưu thông tin Sản phẩm nào được áp dụng Voucher nào?';
 
--- Dumping data for table netashop.shop_product_vouchers: ~2 rows (approximately)
+-- Dumping data for table admin_ws1.shop_product_vouchers: ~0 rows (approximately)
 /*!40000 ALTER TABLE `shop_product_vouchers` DISABLE KEYS */;
 INSERT INTO `shop_product_vouchers` (`product_id`, `voucher_id`, `created_at`, `updated_at`) VALUES
 	(601, 1, '2020-02-17 16:07:38', NULL),
 	(605, 1, '2020-02-17 16:07:46', NULL);
 /*!40000 ALTER TABLE `shop_product_vouchers` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_suppliers
+-- Dumping structure for table admin_ws1.shop_suppliers
 CREATE TABLE IF NOT EXISTS `shop_suppliers` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `supplier_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã nhà cung cấp',
@@ -1846,7 +1848,7 @@ CREATE TABLE IF NOT EXISTS `shop_suppliers` (
   UNIQUE KEY `category_code` (`supplier_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table netashop.shop_suppliers: ~11 rows (approximately)
+-- Dumping data for table admin_ws1.shop_suppliers: ~0 rows (approximately)
 /*!40000 ALTER TABLE `shop_suppliers` DISABLE KEYS */;
 INSERT INTO `shop_suppliers` (`id`, `supplier_code`, `supplier_name`, `description`, `image`, `created_at`, `updated_at`) VALUES
 	(1, 'SUP1', 'Apple', 'Apple', 'suppliers/apple_20200217170111.jpg', '2020-02-17 16:08:55', NULL),
@@ -1862,7 +1864,7 @@ INSERT INTO `shop_suppliers` (`id`, `supplier_code`, `supplier_name`, `descripti
 	(11, 'SUP11', 'BlackBerry', 'BlackBerry', 'suppliers/black_berry_20200217170111.jpg', '2020-02-17 16:08:51', NULL);
 /*!40000 ALTER TABLE `shop_suppliers` ENABLE KEYS */;
 
--- Dumping structure for table netashop.shop_vouchers
+-- Dumping structure for table admin_ws1.shop_vouchers
 CREATE TABLE IF NOT EXISTS `shop_vouchers` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `voucher_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã voucher',
@@ -1883,7 +1885,7 @@ CREATE TABLE IF NOT EXISTS `shop_vouchers` (
   UNIQUE KEY `voucher_code` (`voucher_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='Table lưu thông tin Danh sách các phiếu Khuyến mãi, Giảm giá. Thông thường:\r\n1. Voucher (phiếu khuyến mãi): giảm theo số tiền cụ thể\r\n2. Coupon (phiếu giảm giá %): thường giảm theo % giá trị đơn hàng\r\n';
 
--- Dumping data for table netashop.shop_vouchers: ~2 rows (approximately)
+-- Dumping data for table admin_ws1.shop_vouchers: ~0 rows (approximately)
 /*!40000 ALTER TABLE `shop_vouchers` DISABLE KEYS */;
 INSERT INTO `shop_vouchers` (`id`, `voucher_code`, `voucher_name`, `description`, `uses`, `max_uses`, `max_uses_user`, `type`, `discount_amount`, `is_fixed`, `start_date`, `end_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'VOU1', 'VOUCHER1', 'Voucher ', 0, 10, 1, 1, 500000, b'1', '2020-02-01 00:00:00', '2020-05-31 23:59:59', '2020-02-17 15:07:31', NULL, NULL),

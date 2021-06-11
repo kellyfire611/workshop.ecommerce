@@ -308,7 +308,7 @@ Sản phẩm {{ product.product_name }}
 
     <div class="card">
         <div class="container-fliud">
-            <form name="frmProductDetail" id="frmProductDetail" method="post" action="/frontend/cart/add-to-cart">
+            <form name="frmProductDetail" id="frmProductDetail" method="post" action="{{ root_url }}/frontend/cart/add-to-cart">
                 <!-- Hidden value, dùng để gởi dữ liệu đến Server -->
                 <input type="hidden" name="id" id="id" value="{{ product.id }}" />
                 <input type="hidden" name="product_name" id="product_name" value="{{ product.product_name }}" />
@@ -325,12 +325,12 @@ Sản phẩm {{ product.product_name }}
                         <div class="preview-pic tab-content">
                             <!-- Ảnh đại diện Sản phẩm -->
                             <div class="tab-pane active" id="pic-0">
-                                <img src="/assets/uploads/{{ product.image }}" />
+                                <img src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                             </div>
                             <!-- Danh sách ảnh liên quan -->
                             {% for gallery_image in product.list_images %}
                             <div class="tab-pane" id="pic-{{ loop.index+1 }}">
-                                <img src="/assets/uploads/{{ gallery_image.image }}" />
+                                <img src="{{ root_url }}/assets/uploads/{{ gallery_image.image }}" />
                             </div>
                             {% endfor %}
                         </div>
@@ -338,14 +338,14 @@ Sản phẩm {{ product.product_name }}
                             <!-- Nav tabs cho Ảnh đại diện Sản phẩm -->
                             <li class="active">
                                 <a data-target="#pic-0" data-toggle="tab">
-                                    <img src="/assets/uploads/{{ product.image }}" />
+                                    <img src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                                 </a>
                             </li>
                             <!-- Nav tabs cho Danh sách ảnh liên quan -->
                             {% for gallery_image in product.list_images %}
                             <li class="">
                                 <a data-target="#pic-{{ loop.index+1 }}" data-toggle="tab">
-                                    <img src="/assets/uploads/{{ gallery_image.image }}" />
+                                    <img src="{{ root_url }}/assets/uploads/{{ gallery_image.image }}" />
                                 </a>
                             </li>
                             {% endfor %}
@@ -355,13 +355,13 @@ Sản phẩm {{ product.product_name }}
                         {% if product.image is not empty %}
                         <div class="preview-pic tab-content">
                             <div class="tab-pane active" id="pic-0">
-                                <img src="/assets/uploads/{{ product.image }}" />
+                                <img src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                             </div>
                         </div>
                         <ul class="preview-thumbnail nav nav-tabs">
                             <li class="active">
                                 <a data-target="#pic-0" data-toggle="tab">
-                                    <img src="/assets/uploads/{{ product.image }}" />
+                                    <img src="{{ root_url }}/assets/uploads/{{ product.image }}" />
                                 </a>
                             </li>
                         </ul>
@@ -369,13 +369,13 @@ Sản phẩm {{ product.product_name }}
                         <!-- Nếu không có ảnh mặc định => lấy ảnh minh họa trong assets -->
                         <div class="preview-pic tab-content">
                             <div class="tab-pane active" id="pic-0">
-                                <img src="/assets/shared/img/default-image_600.png" />
+                                <img src="{{ root_url }}/assets/shared/img/default-image_600.png" />
                             </div>
                         </div>
                         <ul class="preview-thumbnail nav nav-tabs">
                             <li class="active">
                                 <a data-target="#pic-0" data-toggle="tab">
-                                    <img src="/assets/shared/img/default-image_600.png" />
+                                    <img src="{{ root_url }}/assets/shared/img/default-image_600.png" />
                                 </a>
                             </li>
                         </ul>
@@ -544,11 +544,11 @@ Sản phẩm {{ product.product_name }}
                 <div class="row">
                     <div class="col-sm-3">
                         {% if review.avatar %}
-                        <img src="/assets/uploads/{{ review.avatar }}" class="img-rounded">
+                        <img src="{{ root_url }}/assets/uploads/{{ review.avatar }}" class="img-rounded">
                         {% else %}
-                        <img src="/assets/shared/img/no-avatar.png" class="img-rounded">
+                        <img src="{{ root_url }}/assets/shared/img/no-avatar.png" class="img-rounded">
                         {% endif %}
-                        <div class="review-block-name"><a href="/{{ review.customer_id }}">{{ review.last_name }} {{ review.first_name }}</a></div>
+                        <div class="review-block-name"><a href="{{ root_url }}/{{ review.customer_id }}">{{ review.last_name }} {{ review.first_name }}</a></div>
                         <div class="review-block-date">{{ review.created_at_formatted }}</div>
                     </div>
                     <div class="col-sm-9">
@@ -604,7 +604,7 @@ Sản phẩm {{ product.product_name }}
 
         // 2. Sử dụng AJAX để gởi dữ liệu đến `cart-addproduct-ajax.php` xử lý
         $.ajax({
-            url: '/frontend/ajax/cart-addproduct-ajax.php',
+            url: '{{ root_url }}/frontend/ajax/cart-addproduct-ajax.php',
             method: "POST",
             dataType: 'json',
             data: sendData,
@@ -612,7 +612,7 @@ Sản phẩm {{ product.product_name }}
                 // Gởi dữ liệu và xử lý thành công
                 console.log(data);
                 var htmlString =
-                    `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/frontend/checkout/cart">Xem Giỏ hàng</a>.`;
+                    `Sản phẩm đã được thêm vào Giỏ hàng. <a href="{{ root_url }}/frontend/checkout/cart">Xem Giỏ hàng</a>.`;
                 $('#errors-container').html(htmlString);
 
                 // Hiện thông báo

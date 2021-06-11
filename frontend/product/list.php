@@ -38,6 +38,6 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `frontend/pages/danhsach.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên
-echo $twig->render('frontend/sanpham/danhsach.html.twig', [
+echo $twig->render('frontend/sanpham/list.html.twig', [
     'danhsachsanpham' => $dataDanhSachSanPham
 ]);

@@ -9,7 +9,7 @@
 
 {% block customstyles %}
 <!-- Add thư viện Flatpickr -->
-<link rel="stylesheet" href="/assets/vendor/flatpickr/flatpickr.min.css">
+<link rel="stylesheet" href="{{ root_url }}/assets/vendor/flatpickr/flatpickr.min.css">
 {% endblock %}
 
 {# Nội dung trong block headline #}
@@ -21,7 +21,7 @@
 {# Nội dung trong block content #}
 {% block content %}
 
-<form name="frmRegister" id="frmRegister" method="post" action="/backend/auth/register.php" enctype="multipart/form-data">
+<form name="frmRegister" id="frmRegister" method="post" action="{{ root_url }}/backend/auth/register.php" enctype="multipart/form-data">
     <div class="container mt-4">
         {% if errors %}
         <div id="errors-container" class="alert alert-danger face" role="alert">
@@ -120,7 +120,7 @@
 
                         <div class="form-row">
                             <div class="avatar-img-container">
-                                <img src="/assets/shared/img/default-image_600.png" id="avatar-img-preview" width="200px" />
+                                <img src="{{ root_url }}/assets/shared/img/default-image_600.png" id="avatar-img-preview" width="200px" />
                             </div>
                             <div class="col">
                                 <div>
@@ -215,7 +215,7 @@
                     <div class="card-footer p-4">
                         <div class="row">
                             <div class="col-12">
-                                <center>Nếu bạn đã có Tài khoản, xin mời <a href="/backend/auth/login.php">Đăng nhập</a></center>
+                                <center>Nếu bạn đã có Tài khoản, xin mời <a href="{{ root_url }}/backend/auth/login.php">Đăng nhập</a></center>
                             </div>
                         </div>
                     </div>
@@ -229,11 +229,11 @@
 
 {% block customscripts %}
 <!-- Add thư viện Flatpickr -->
-<script src="/assets/vendor/flatpickr/flatpickr.js"></script>
+<script src="{{ root_url }}/assets/vendor/flatpickr/flatpickr.js"></script>
 
 <!-- Thư viện Jquery validation -->
-<script src="/assets/vendor/jquery-validation/jquery.validate.min.js"></script>
-<script src="/assets/vendor/jquery-validation/localization/messages_vi.min.js"></script>
+<script src="{{ root_url }}/assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="{{ root_url }}/assets/vendor/jquery-validation/localization/messages_vi.min.js"></script>
 
 <script>
     // Hiển thị ảnh preview khi chọn Avatar

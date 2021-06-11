@@ -54,9 +54,9 @@ Giỏ hàng
                         <td>{{ loop.index }}</td>
                         <td>
                             {% if product.image %}
-                            <img src="/assets/uploads/{{ product.image }}" class="img-product" />
+                            <img src="{{ root_url }}/assets/uploads/{{ product.image }}" class="img-product" />
                             {% else %}
-                            <img src="/assets/shared/img/default-image_600.png" class="img-product" />
+                            <img src="{{ root_url }}/assets/shared/img/default-image_600.png" class="img-product" />
                             {% endif %}
                         </td>
                         <td>{{ product.product_name }}</td>
@@ -105,9 +105,9 @@ Giỏ hàng
             <h2>Giỏ hàng rỗng!!!</h2>
             {% endif %}
 
-            <a href="/" class="btn btn-warning btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Quay
+            <a href="{{ root_url }}/" class="btn btn-warning btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Quay
                 về trang chủ</a>
-            <a href="/frontend/checkout/onepage-checkout.php" class="btn btn-primary btn-md"><i class="fa fa-shopping-cart"
+            <a href="{{ root_url }}/frontend/checkout/onepage-checkout.php" class="btn btn-primary btn-md"><i class="fa fa-shopping-cart"
                     aria-hidden="true"></i>&nbsp;Thanh toán</a>
         </div>
     </div>
@@ -126,7 +126,7 @@ Giỏ hàng
             };
 
             $.ajax({
-                url: '/frontend/ajax/cart-removeproduct-ajax',
+                url: '{{ root_url }}/frontend/ajax/cart-removeproduct-ajax',
                 method: "POST",
                 dataType: 'json',
                 data: dulieugoi,

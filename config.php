@@ -1,9 +1,10 @@
 <?php
 class Config
 {
+    public static $root_url = '/workshop.ecommerce';
     public static $DB_CONNECTION_HOST           = 'localhost';
-    public static $DB_CONNECTION_USERNAME       = 'admin_ws1';
-    public static $DB_CONNECTION_PASSWORD       = 'Db@#123456';
+    public static $DB_CONNECTION_USERNAME       = 'root';
+    public static $DB_CONNECTION_PASSWORD       = '';
     public static $DB_CONNECTION_DATABASE_NAME  = 'admin_ws1';
 
     public static $LIMIT = 5;

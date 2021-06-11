@@ -15,7 +15,7 @@ if (!isset($_POST['btnLogin'])) {
     if (isset($_SESSION['frontend']['email'])) {
         // echo "<h1>Xin chào mừng ". $_SESSION['frontend']['email'] ."</h1>";
         // echo session_save_path();
-        header('location:home.php');
+        header('location:./../pages/home.php');
     } else {
         // Biến dùng lưu thông báo lỗi
         $errors = [];

@@ -3,7 +3,7 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ app.request.get('_route') == '_list' ? 'active' }}" href="/backend/pages/dashboard">
+                <a class="nav-link {{ app.request.get('_route') == '_list' ? 'active' }}" href="{{ root_url }}/backend/pages/dashboard">
                     <span data-feather="home"></span>
                     Bảng tin <span class="sr-only">(current)</span>
                 </a>
@@ -20,13 +20,13 @@
                 </a>
                 <ul class="collapse" id="acl_rolesSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/auth/acl_roles/">
+                        <a class="nav-link" href="{{ root_url }}/backend/auth/acl_roles/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/auth/acl_roles/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/auth/acl_roles/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -42,13 +42,13 @@
                 </a>
                 <ul class="collapse" id="acl_permissionsSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/auth/acl_permissions/">
+                        <a class="nav-link" href="{{ root_url }}/backend/auth/acl_permissions/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/auth/acl_permissions/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/auth/acl_permissions/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -64,13 +64,13 @@
                 </a>
                 <ul class="collapse" id="acl_usersSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/auth/acl_users/">
+                        <a class="nav-link" href="{{ root_url }}/backend/auth/acl_users/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/auth/acl_users/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/auth/acl_users/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -91,13 +91,13 @@
                 </a>
                 <ul class="collapse" id="shop_categoriesSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_categories/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_categories/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_categories/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_categories/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -113,13 +113,13 @@
                 </a>
                 <ul class="collapse" id="shop_suppliersSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_suppliers/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_suppliers/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_suppliers/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_suppliers/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -135,13 +135,13 @@
                 </a>
                 <ul class="collapse" id="shop_productsSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_products/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_products/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_products/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_products/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -157,13 +157,13 @@
                 </a>
                 <ul class="collapse" id="shop_product_imagesSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_product_images/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_product_images/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_product_images/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_product_images/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -179,13 +179,13 @@
                 </a>
                 <ul class="collapse" id="shop_product_reviewsSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_product_reviews/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_product_reviews/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_product_reviews/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_product_reviews/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -206,13 +206,13 @@
                 </a>
                 <ul class="collapse" id="shop_vouchersSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_vouchers/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_vouchers/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_vouchers/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_vouchers/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -227,13 +227,13 @@
                 </a>
                 <ul class="collapse" id="shop_product_vouchersSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_product_vouchers/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_product_vouchers/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_product_vouchers/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_product_vouchers/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -248,13 +248,13 @@
                 </a>
                 <ul class="collapse" id="shop_customer_vouchersSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_customer_vouchers/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_customer_vouchers/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_customer_vouchers/create.php">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_customer_vouchers/create.php">
                             <span data-feather="plus"></span>
                             Thêm mới
                         </a>
@@ -275,7 +275,7 @@
                 </a>
                 <ul class="collapse" id="shop_ordersSubMenu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/backend/shop_orders/">
+                        <a class="nav-link" href="{{ root_url }}/backend/shop_orders/">
                             <span data-feather="list"></span>
                             Danh sách
                         </a>
@@ -291,7 +291,7 @@
             </li>
             <!-- Menu Báo cáo Doanh thu -->
             <li class="nav-item">
-                <a class="nav-link" href="/backend/reports/baocaodoanhthu.php">
+                <a class="nav-link" href="{{ root_url }}/backend/reports/baocaodoanhthu.php">
                     <span data-feather="list"></span>
                     Báo cáo Doanh thu
                 </a>
@@ -300,7 +300,7 @@
             
             <!-- Menu Thống kê lượng Khách hàng -->
             <li class="nav-item">
-                <a class="nav-link" href="/backend/reports/baocaodoanhthu.php">
+                <a class="nav-link" href="{{ root_url }}/backend/reports/baocaodoanhthu.php">
                     <span data-feather="list"></span>
                     Thống kê lượng Khách hàng
                 </a>

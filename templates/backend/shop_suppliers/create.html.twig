@@ -31,7 +31,7 @@ Thêm mới Nhà cung cấp
 </div>
 {% endif %}
 
-<form name="frmLoaiSanPham" id="frmLoaiSanPham" method="post" action="/backend/loaisanpham/create">
+<form name="frmLoaiSanPham" id="frmLoaiSanPham" method="post" action="{{ root_url }}/backend/loaisanpham/create">
     <div class="form-group">
         <label for="lsp_ma">Mã Nhà cung cấp</label>
         <input type="text" class="form-control" id="lsp_ma" name="lsp_ma" placeholder="Mã Nhà cung cấp" readonly>
